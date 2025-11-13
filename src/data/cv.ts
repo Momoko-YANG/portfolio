@@ -12,11 +12,11 @@ export const basics = {
   animated_secondary_final_label: "fullstack",
   image: "/images/profilephoto.PNG", // 头像路径，放在 public/images 文件夹中
   email: "yangmengyuan1215@gmail.com",
-  url: "https://anmol.pro", // 个人网站
+  url: "https://yangmengyuan.com", // 个人网站
   summary: `Passionate Machine Learning Engineer with experience in backend development, NLP, and financial time series forecasting. Skilled in building end-to-end ML pipelines, cloud deployment, and applied mathematical modeling.
 
 Seeking a position as a Machine Learning Engineer / AI Engineer / Data Engineer, where I can leverage my technical expertise to support digital transformation and scalable system development.`,
-  theme: "platinum", // 主题：red 或 platinum
+  theme: "red", // 主题：red 或 platinum
   location: {
     city: "Shizuoka",
     countryCode: "JP",
@@ -356,7 +356,7 @@ export const projects: Array<{
       CanvasAPI: "mdi:draw",
       HTML5: "simple-icons:html5",
     },
-    url: "https://particlefx.anmol.pro",
+    url: "https://particlefx.example.com",
   },
   {
     name: "Social Media WebApp",
