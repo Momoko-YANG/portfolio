@@ -1,0 +1,60 @@
+---
+import Section from '../Section.astro'
+import { certificates } from '@cv'
+---
+
+<Section className={Astro.props.className} title='Certifications'>
+  <ul class='space-y-4 py-3 print:space-y-2'>
+    {certificates.map(({ name, date, issuer, url }: { name: string; date: string; issuer: string; url: string }) => {
+      const certificateYear = new Date(date).getFullYear()
+      const month = new Date(date).toLocaleDateString('en-US', { month: 'short' })
+      const displayDate = `${month} ${certificateYear}`
+      
+      return (
+        <li class='flex items-start'>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            width='24'
+            height='24'
+            viewBox='0 0 24 24'
+            fill='none'
+            stroke='currentColor'
+            stroke-width='2'
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            class='mr-2 hidden h-5 w-5 self-start md:inline-block print:hidden text-skin-hue flex-shrink-0 mt-0.5'>
+            <path d='M15 12h-5' />
+            <path d='M15 8h-5' />
+            <path d='M19 17V5a2 2 0 0 0-2-2H4' />
+            <path d='M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3' />
+          </svg>
+          <div class='relative w-full flex flex-col gap-1'>
+            <h3 class='font-medium text-skin-base'>
+              <a
+                class='group inline-flex items-center gap-[6px] decoration-dotted underline-offset-[5px] hover:text-skin-hue hover:underline transition-all sm:hover:cursor-none'
+                href={url || null}
+                target='_blank'
+                data-ccursor>
+                {name}
+              </a>
+            </h3>
+            <div class='flex items-center gap-2 text-sm text-skin-muted'>
+              <span>{issuer}</span>
+              <span>•</span>
+              <time data-ccursor="lift" class='text-xs sm:hover:text-skin-hue transition-colors'>
+                {displayDate}
+              </time>
+            </div>
+          </div>
+        </li>
+      )
+    })}
+  </ul>
+</Section>
+
+<style>
+  h3 a:hover {
+    @apply text-skin-hue;
+  }
+</style>
+

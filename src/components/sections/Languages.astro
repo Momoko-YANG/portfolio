@@ -1,0 +1,28 @@
+---
+import Section from '../Section.astro'
+import { languages } from '@cv'
+---
+
+<Section className={Astro.props.className} title='Languages'>
+  <ul class='space-y-3 py-3 print:space-y-2'>
+    {languages.map(({ language, fluency }: { language: string; fluency: string }) => {
+      return (
+        <li class='flex flex-wrap items-baseline gap-2'>
+          <h3 class='font-semibold text-skin-base text-sm whitespace-nowrap' data-ccursor="lift">
+            {language}:
+          </h3>
+          <p class='text-sm text-skin-muted' data-ccursor>
+            {fluency}
+          </p>
+        </li>
+      )
+    })}
+  </ul>
+</Section>
+
+<style>
+  h3 {
+    @apply max-w-fit px-2 sm:hover:text-skin-hue transition-colors;
+  }
+</style>
+

@@ -3,13 +3,21 @@ import Section from "../Section.astro";
 import CV from "@cv";
 const { summary } = CV.basics;
 
-const words = summary.split(' ');
+// 支持多段落：先按换行符分割段落，再按空格分割单词
+const paragraphs = summary.split('\n').filter(p => p.trim());
 ---
 
-<Section className={Astro.props.className} title="About">
-  <p class="font-mono opacity-75 print:font-sans text-skin-hue font-semibold print:text-skin-base print:font-normal w-full select-none">
-    {words.map((word) => (
-      <span class="w-min sm:hover:bg-skin-button-muted transition-all duration-200 sm:hover:cursor-none">{word}</span> <span> </span>
-    ))}
-  </p>
+<Section className={Astro.props.className} title="Professional Summary">
+  <div class="space-y-4">
+    {paragraphs.map((paragraph) => {
+      const words = paragraph.split(' ');
+      return (
+        <p class="font-mono opacity-75 print:font-sans text-skin-hue font-semibold print:text-skin-base print:font-normal w-full select-none">
+          {words.map((word) => (
+            <span class="w-min sm:hover:bg-skin-button-muted transition-colors duration-200 sm:hover:cursor-none">{word}</span> <span> </span>
+          ))}
+        </p>
+      );
+    })}
+  </div>
 </Section>

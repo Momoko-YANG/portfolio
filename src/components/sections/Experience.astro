@@ -101,15 +101,21 @@ const millisecondsInYear = 1000 * 60 * 60 * 24 * 365
     })}
   </ul>
 </Section>
-<script>
-  const expandButton = document.querySelectorAll('.expand-button');
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    const expandButtons = document.querySelectorAll('.expand-button');
 
-  expandButton.forEach(button => {
-    button.addEventListener('click', () => {
-      const container = button.closest<HTMLElement>('.expand-container')!;
-      container.dataset.expanded = container.dataset.expanded === 'true' ? 'false' : 'true';
-      const expandText = button.querySelector('.expand-text')!;
-      expandText.innerHTML = container.dataset.expanded === 'true' ? 'Show less' : 'Show more'
+    expandButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const container = button.closest('.expand-container');
+        if (container) {
+          container.dataset.expanded = container.dataset.expanded === 'true' ? 'false' : 'true';
+          const expandText = button.querySelector('.expand-text');
+          if (expandText) {
+            expandText.innerHTML = container.dataset.expanded === 'true' ? 'Show less' : 'Show more';
+          }
+        }
+      });
     });
   });
 </script>

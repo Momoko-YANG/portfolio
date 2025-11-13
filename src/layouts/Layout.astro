@@ -1,6 +1,6 @@
 ---
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
-import '../globals.css';
+import '../styles/globals.css';
 import CV from "@cv";
 import Analytics from '@vercel/analytics/astro';
 import BackgroundArt from "../components/BackgroundArt.astro"
@@ -124,8 +124,8 @@ const breadcrumbSchema = {
     <link rel="canonical" href={canonicalURL} />
     
     <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
-    <link rel="apple-touch-icon" href="/apple-touch-icon.webp" />
+    <link rel="icon" href="/icons/favicon.ico" type="image/x-icon"/>
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.webp" />
     
     <!-- Preload critical assets -->
     <link rel="preload" as="image" href={image} />

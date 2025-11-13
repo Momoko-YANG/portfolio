@@ -6,7 +6,7 @@ import {Icon} from "astro-icon/components";
 
 
 const { name, label, location, profiles, summary } = basics
-const { city, region, address } = location
+const { city, region } = location
 ---
 
 <Layout title="About">
@@ -22,13 +22,15 @@ const { city, region, address } = location
         <h2 class="text-sm text-green nvim-line">{label}</h2>
         <div class="flex items
         -center gap-2 pt-1 text-sm text-skin-muted nvim-line">
-          {address}, {city}, {region}.
+          {city}, {region}.
         </div>
         
-        <div class="mb-2">
-          <p class="font-mono opacity-75 font-semibold nvim-line">
-            {summary}
-          </p>
+        <div class="mb-2 space-y-2">
+          {summary.split('\n').filter(p => p.trim()).map(paragraph => (
+            <p class="font-mono opacity-75 font-semibold nvim-line">
+              {paragraph}
+            </p>
+          ))}
         </div>
         
         <footer class='flex flex-col gap-1'>

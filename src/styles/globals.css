@@ -4,6 +4,33 @@
 
 @layer base {
   :root {
+    transition: none;
+  }
+
+  /* Only apply color transitions to interactive elements */
+  a, button, [data-theme] {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+  }
+
+  /* Disable transition for elements with explicit animations */
+  [class*="animate-"],
+  [class*="transition-"],
+  .no-transition {
+    transition: none !important;
+  }
+  
+  /* Disable transitions during user selection */
+  *::selection {
+    transition: none !important;
+  }
+  
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  :root {
     --color-text-base: 0, 0, 0;
     --color-text-muted: 120, 120, 120;
     --color-text-inverted: 255, 255, 255;
