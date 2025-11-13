@@ -314,7 +314,15 @@ export const languages = [
 ];
 
 // 项目列表
-export const projects = [
+export const projects: Array<{
+  name: string;
+  isActive: boolean;
+  description: string;
+  highlights: string[];
+  url?: string;
+  github?: string;
+  stack?: Record<string, string>;
+}> = [
   {
     name: "pixelsaffron",
     isActive: true,

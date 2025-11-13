@@ -8,7 +8,7 @@ const millisecondsInYear = 1000 * 60 * 60 * 24 * 365
 
 <Section className={Astro.props.className} title='Education'>
   <ul class="flex flex-col">
-    {education.map(({ institution, startDate, endDate, area, url, score, courses, honors }: any) => {
+    {education.map(({ institution, startDate, endDate, area, url, honors }: any) => {
       const startYear = new Date(startDate).getFullYear()
       const endYear = endDate != null ? new Date(endDate).getFullYear() : "Present"
       const timeLapse = (endDate!=null?new Date(endDate).getTime():new Date().getTime()) - new Date(startDate).getTime()

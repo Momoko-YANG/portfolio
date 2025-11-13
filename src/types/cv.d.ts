@@ -82,6 +82,7 @@ interface Education {
   endDate: DateStr;
   score?: string;
   courses?: Array<string>;
+  honors?: string;
 }
 
 interface Language {
@@ -96,6 +97,7 @@ interface Project {
   highlights: Highlights;
   url?: URL;
   github?: URL;
+  stack?: Record<string, string>;
 }
 
 interface Interests {
