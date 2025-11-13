@@ -214,9 +214,9 @@ const profilesInfo = profiles.map(({ network, url }) => {
     content: '';
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     z-index: -1;
     pointer-events: none;
   }
@@ -227,21 +227,23 @@ const profilesInfo = profiles.map(({ network, url }) => {
   }
 
   #hotkeypad {
-    --hotkeypad-bg-kbd: rgb(var(--muted));
+    --hotkeypad-bg-kbd: rgba(var(--color-text-base), 0.1);
     --hotkeypad-bg-backdrop: rgb(var(--color-fill));
-    --hotkeypad-bg-container: rgb(var(--color-fill));
-    --hotkeypad-bg-item-hover: rgba(var(--color-text), 20%);
-    --hotkeypad-border-container: rgb(var(--muted));
-    --hotkeypad-border-container-hover: rgb(var(--color-fill));
-    --hotkeypad-fg-muted: rgb(var(--muted));
+    --hotkeypad-bg-container: rgba(255, 255, 255, 0.95);
+    --hotkeypad-bg-item-hover: rgba(var(--color), 25%);
+    --hotkeypad-border-container: rgba(var(--color-text-base), 0.2);
+    --hotkeypad-border-container-hover: rgb(var(--color));
+    --hotkeypad-fg-muted: rgba(var(--color-text-base), 0.7);
+    --hotkeypad-color-text: rgb(var(--color-text-base));
     @media (prefers-color-scheme: dark) {
-      --hotkeypad-bg-kbd: rgb(var(--muted));
+      --hotkeypad-bg-kbd: rgba(var(--color-text-base), 0.15);
       --hotkeypad-bg-backdrop: rgb(var(--color-fill));
-      --hotkeypad-bg-container: rgb(var(--color-fill));
-      --hotkeypad-bg-item-hover: rgba(var(--color), 10%);
-      --hotkeypad-border-container: rgb(var(--muted));
-      --hotkeypad-border-container-hover: rgb(var(--color-fill));
-      --hotkeypad-fg-muted: rgb(var(--color-text-base));
+      --hotkeypad-bg-container: rgba(30, 30, 30, 0.95);
+      --hotkeypad-bg-item-hover: rgba(var(--color), 20%);
+      --hotkeypad-border-container: rgba(var(--color-text-base), 0.3);
+      --hotkeypad-border-container-hover: rgb(var(--color));
+      --hotkeypad-fg-muted: rgba(var(--color-text-base), 0.8);
+      --hotkeypad-color-text: rgb(var(--color-text-base));
     }
   }
 </style>
